@@ -1,0 +1,22 @@
+{What is i8583 ?}
+
+  i8583 is a pluggable OSGI enabled java library to parse and create ISO 8583 messages. 
+  
+{Why i8583 ?}
+
+  There are several products and open source projects that can parse ISO 8583 messages. In our opinion none of then are focused on integrating 
+  the messages with other systems. i8583 was designed from outside in to integrate with other frameworks and to allow easy extension to implement
+  the several different ISO 8583 flavours. i8583 does only thing parse and create ISO 8583 message and leaves the other aspects such as transmission
+  or validation to other frameworks like Spring or Camel.
+  
+    * Designed to play well with other libraries - Spring Integration, Smooks, Camel
+    
+    * Designed to be extended to create multiple implementations
+  
+    * Focused on doing only one thing and doing it right - Parse and create ISO Messages
+  
+    * OSGI Enabled
+  
+    * {{{./license.html#Apache_License}Apache 2.0 license}}
+   
+{Getting Started}
