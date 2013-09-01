@@ -1,0 +1,24 @@
+-classpath
+'H:/work/GitHub/i8583/i8583/target/classes;H:/work/GitHub/i8583/i8583-core/target/classes'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'H:/work/GitHub/i8583/i8583-core/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2013 <a href="http://www.evolvussolutions.com">Evolvus Solutions Pvt. Ltd</a>. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'H:/work/GitHub/i8583/i8583/target/site/apidocs/1.0.0.BUILD-SNAPSHOT'
+-docencoding
+'UTF-8'
+-doctitle
+'i8583 1.0.0.BUILD-SNAPSHOT API'
+-linkoffline
+'http://docs.oracle.com/javase/6/docs/api' 'H:/work/GitHub/i8583/i8583/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'i8583 1.0.0.BUILD-SNAPSHOT API'
