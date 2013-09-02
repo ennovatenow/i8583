@@ -23,6 +23,7 @@
 			<item name="Javadocs" href="apidocs/${project.version}/index.html" />
 			<item name="Developers Guide" href="developers/tbd.html#Developers_Guide" />
 			<item name="Resources" href="resources.html#Other_ISO_8583_Parsers" />
+			<item name="Issue Tracker" href="https://github.com/ennovatenow/i8583/issues?state=open"/>
 		</menu>
 
 		<menu name="Examples">
@@ -36,7 +37,9 @@
 			<item name="OSGI example" href="/examples/tbd.html" />
 		</menu>
 
-		<menu name="Download"></menu>
+		<menu name="Download">
+			<item name="Source Code" href="https://github.com/ennovatenow/i8583" />
+		</menu>
 
 	</body>
 
