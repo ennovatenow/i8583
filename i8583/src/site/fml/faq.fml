@@ -8,16 +8,17 @@
   <part id="general">
     <title>General</title>
 
-    <faq id="whats-foo">
+    <faq id="whats-with-the-image">
       <question>
-        What is Foo?
+        What's with the image on the home page of the project?
       </question>
       <answer>
-        <p>some markup goes here</p>
+        <p>
+		   Well, it was late night and had to complete the maven site page, to do that I needed an image to replace the 
+		   default maven logo on the header. This was the first Creative Commons Licensed image with white background I could find!!
+		</p>
 
-        <source>some source code</source>
-
-        <p>some markup goes here</p>
+        <p>The original image is from the Japanese ISO8583 page and can seen here <a href="http://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:ISO_8583_image_1.PNG"/></p>
       </answer>
     </faq>
 
