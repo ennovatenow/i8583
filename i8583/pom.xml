@@ -17,10 +17,27 @@
 	<name>i8583</name>
 	<description>An ISO 8583 parser with a focus on integrations</description>
 	<url>http://ennovatenow.github.io/i8583/</url>
+	
+	<mailingLists>
+		<mailingList>
+			<name>i8583-dev</name>
+			<post>i8583-dev@googlegroups.com</post>
+			<subscribe>i8583-dev@googlegroups.com</subscribe>
+			<unsubscribe>i8583-dev+unsubscribe@googlegroups.com</unsubscribe>
+		</mailingList>
+		<mailingList>
+			<name>i8583-users</name>
+			<post>i8583-users@googlegroups.com</post>
+			<subscribe>i8583-users@googlegroups.com</subscribe>
+			<unsubscribe>i8583-users+unsubscribe@googlegroups.com</unsubscribe>
+		</mailingList>
+	</mailingLists>
 
+    <inceptionYear>2013</inceptionYear>
+    
 	<organization>
 		<name>Evolvus Solutions Pvt. Ltd</name>
-		<url>http://www.evolvussolutions.com</url>
+		<url>http://www.evolvussolutions.com</url>		
 	</organization>
 
 	<licenses>
@@ -107,7 +124,7 @@
 				<executions>
 					<execution>
 						<id>generate-site</id>
-						<inherited>false</inherited>					
+						<inherited>false</inherited>
 						<goals>
 							<goal>site</goal>
 						</goals>
@@ -115,9 +132,19 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<archive>
+						<manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+					</archive>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
-	
+
 	<scm>
 		<connection>scm:git:git@github.com:ennovatenow/i8583.git</connection>
 		<url>https://github.com/ennovatenow/i8583</url>

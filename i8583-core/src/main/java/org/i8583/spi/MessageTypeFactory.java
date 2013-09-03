@@ -16,33 +16,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.i8583;
+package org.i8583.spi;
+
+import org.i8583.MessageType;
 
 /**
- * Represents an ISO 8583 data element.
+ * A factory for creating <code>MessageType</code> objects.
  * 
- * @author anisht
+ * <p>
+ * A <code>MessageType</code> is identified by its
+ * "Message Type Indicator (MTI)" string.
+ * </p>
+ * 
+ * @author ennovatenow
  * 
  */
-public interface Element {
-    /**
-     * Returns the maximum possible length of the data element.
-     * 
-     * @return The maximum possible length of the data element.
-     */
-    int getLength();
+public interface MessageTypeFactory {
 
     /**
-     * Returns the content type of the data element.
+     * Returns the <code>MessageType</code> for the message type indicator.
      * 
-     * @return The content type of the data element.
+     * @param mti
+     *            Message type indicator identifying the
+     *            <code>MessageType</code>.
+     * @return The <code>MessageType</code> instance.
      */
-    String getType();
-
-    /**
-     * Returns "Y" if this is a Fixed length data element. "N" otherwise.
-     * 
-     * @return "Y" if this is a Fixed length data element. "N" otherwise.
-     */
-    String getFixed();
+    MessageType getMessageType(String mti);
 }

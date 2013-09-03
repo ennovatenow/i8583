@@ -15,32 +15,36 @@
  * limitations under the License.
  */
 package org.i8583.spi;
+
 /**
- * Represents a service registry which may be implemented via a Spring ApplicationContext,
- * via JNDI, a simple Map or the OSGI Service Registry
+ * Represents a service registry which may be implemented via a Spring
+ * ApplicationContext, via JNDI, a simple Map or the OSGI Service Registry
  * 
  * Borrowed from Apache Camel
- *
+ * 
  * @see org.apache.camel.spi.Registry
  */
 public interface Registry {
 
     /**
-     * Looks up a service in the registry, returning the service or null if it could not be found.
-     *
-     * @param name the name of the service
-     * @param type the type of the required service
-     * @return the service from the registry or null if it could not be found
-     */
-    <T> T lookup(String name, Class<T> type);
-
-    /**
-     * Looks up a service in the registry based purely on name,
-     * returning the service or null if it could not be found.
-     *
-     * @param name the name of the service
+     * Looks up a service in the registry based purely on name, returning the
+     * service or null if it could not be found.
+     * 
+     * @param name
+     *            the name of the service
      * @return the service from the registry or null if it could not be found
      */
     Object lookup(String name);
-}
 
+    /**
+     * Looks up a service in the registry, returning the service or null if it
+     * could not be found.
+     * 
+     * @param name
+     *            the name of the service
+     * @param type
+     *            the type of the required service
+     * @return the service from the registry or null if it could not be found
+     */
+    <T> T lookup(String name, Class<T> type);
+}

@@ -19,43 +19,30 @@
 package org.i8583;
 
 /**
- * Represents the metadata about an ISO 8583 Message.
- * 
- * <p>
- * An ISO Message has three parts
- * <ul>
- * <li>Message type indicator (MTI)</li>
- * <li>One or more bitmaps - a field index to identify which fields are present.
- * </li>
- * <li>Data elements - fields that make up the message.</li>
- * </ul>
- * </p>
+ * Represents an ISO 8583 data element.
  * 
  * @author ennovatenow
  * 
  */
-public interface MessageType {
+public interface ElementType {
     /**
-     * Returns the <code>ElementType</code> of the Bitmap index.
+     * Returns "Y" if this is a Fixed length data element. "N" otherwise.
      * 
-     * @return The <code>ElementType</code> of the Bitmap index.
+     * @return "Y" if this is a Fixed length data element. "N" otherwise.
      */
-    ElementType getBitmap();
+    String getFixed();
 
     /**
-     * Returns the <code>ElementType</code> of the data element in the Message
+     * Returns the maximum possible length of the data element.
      * 
-     * @param position
-     *            Position of the element in the message.
-     * @return The <code>ElementType</code> of the data element identified by
-     *         the position.
+     * @return The maximum possible length of the data element.
      */
-    ElementType getElement(int position);
+    int getLength();
 
     /**
-     * Returns the Message Type Indicator of the Message
+     * Returns the content type of the data element.
      * 
-     * @return Message Type Indicator of the Message.
+     * @return The content type of the data element.
      */
-    String getMti();
+    String getType();
 }
