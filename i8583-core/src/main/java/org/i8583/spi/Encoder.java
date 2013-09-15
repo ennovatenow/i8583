@@ -16,33 +16,42 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.i8583.impl;
-
-import java.util.HashMap;
-
-import org.i8583.spi.Registry;
+package org.i8583.spi;
 
 /**
- * Default implementation of the <code>Registry</code>. This is a
- * <code>Map</code> based in-memory implementation.
+ * Generic encoder abstraction to encode any object.
+ * <p/>
+ * If the encoder is unable to encode the object it throws a
+ * <code>EncoderException</code>.
  * 
  * @author ennovatenow
+ * @see org.apache.commons.codec.Encoder
+ */
+
+/**
+ * Generic encoder abstraction to encode any object.
+ * <p/>
+ * If the encoder is unable to encode the object it throws a
+ * <code>EncoderException</code>.
+ * 
+ * @param <T>
+ *            Type of the Encoded Object.
+ * 
+ * @param <S>
+ *            Type of the source object to be encoded.
+ * 
+ * @author ennovatenow
+ * @see org.apache.commons.codec.Encoder
  * 
  */
-public class DefaultRegistry extends HashMap<String, Object> implements
-        Registry {
+public interface Encoder<T, S> {
+    /**
+     * Encodes an object.
+     * 
+     * @param source
+     *            The object to be encoded.
+     * @return The encoded object.
+     */
 
-    private static final long serialVersionUID = -2210627069553146424L;
-
-    @Override
-    public Object lookup(final String name) {
-        return get(name);
-    }
-
-    @Override
-    public <T> T lookup(final String name, final Class<T> type) {
-        final Object object = lookup(name);
-        return type.cast(object);
-    }
-
+    T encode(S source);
 }

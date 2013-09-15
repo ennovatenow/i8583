@@ -16,33 +16,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.i8583.impl;
-
-import java.util.HashMap;
-
-import org.i8583.spi.Registry;
+package org.i8583;
 
 /**
- * Default implementation of the <code>Registry</code>. This is a
- * <code>Map</code> based in-memory implementation.
+ * Represents an ISO Message with a message type indicator.
  * 
  * @author ennovatenow
  * 
  */
-public class DefaultRegistry extends HashMap<String, Object> implements
-        Registry {
+public interface Message {
 
-    private static final long serialVersionUID = -2210627069553146424L;
+    /**
+     * Returns the value of the data element in the Message.
+     * <p/>
+     * Throws an
+     * <code>IllegalArgumentException<code> if the value of position is invalid.
+     * 
+     * @param index
+     *            Position of the element in the message.
+     * @return Value of the data element identified by the index.
+     */
+    Object getElement(String index);
 
-    @Override
-    public Object lookup(final String name) {
-        return get(name);
-    }
-
-    @Override
-    public <T> T lookup(final String name, final Class<T> type) {
-        final Object object = lookup(name);
-        return type.cast(object);
-    }
-
+    /**
+     * Returns the Message Type Indicator of the Message
+     * 
+     * @return Message Type Indicator of the Message.
+     */
+    Object getMti();
 }

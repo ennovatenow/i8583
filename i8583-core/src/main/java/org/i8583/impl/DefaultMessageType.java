@@ -33,13 +33,25 @@ import org.i8583.MessageType;
  */
 public class DefaultMessageType implements MessageType {
 
-    private String mti;
+    private final String mti;
     private ElementType bitmap;
-    private Map<Integer, ElementType> elements = new HashMap<Integer, ElementType>();
+    private final Map<String, ElementType> elements = new HashMap<String, ElementType>();
 
-    public DefaultMessageType(String mti) {
+    public DefaultMessageType(final String mti) {
         this.mti = mti;
 
+    }
+
+    /**
+     * Add <code>ElementType</code> to the <code>MessageType</code>.
+     * 
+     * @param position
+     *            Position of the data element.
+     * @param elementType
+     *            <code>ElementType</code> to be added.
+     */
+    public void add(final String position, final ElementType elementType) {
+        elements.put(position, elementType);
     }
 
     /*
@@ -58,7 +70,7 @@ public class DefaultMessageType implements MessageType {
      * @see org.i8583.MessageType#getElement(int)
      */
     @Override
-    public ElementType getElement(int position) {
+    public ElementType getElement(final String position) {
         return elements.get(position);
     }
 
@@ -75,21 +87,10 @@ public class DefaultMessageType implements MessageType {
     /**
      * Set the bitmap definition of the message.
      * 
-     * @param bitmap <code>ElementType</code> defining the Bitmap for the message.
+     * @param bitmap
+     *            <code>ElementType</code> defining the Bitmap for the message.
      */
-    public void setBitmap(ElementType bitmap) {
+    public void setBitmap(final ElementType bitmap) {
         this.bitmap = bitmap;
-    }
-
-    /**
-     * Add <code>ElementType</code> to the <code>MessageType</code>.
-     * 
-     * @param position
-     *            Position of the data element.
-     * @param elementType
-     *            <code>ElementType</code> to be added.
-     */
-    public void add(int position, ElementType elementType) {
-        elements.put(position, elementType);
     }
 }

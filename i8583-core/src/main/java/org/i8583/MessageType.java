@@ -50,7 +50,7 @@ public interface MessageType {
      * @return The <code>ElementType</code> of the data element identified by
      *         the position.
      */
-    ElementType getElement(int position);
+    ElementType getElement(String position);
 
     /**
      * Returns the Message Type Indicator of the Message

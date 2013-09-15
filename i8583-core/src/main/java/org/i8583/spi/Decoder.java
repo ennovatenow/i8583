@@ -16,33 +16,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.i8583.impl;
-
-import java.util.HashMap;
-
-import org.i8583.spi.Registry;
+package org.i8583.spi;
 
 /**
- * Default implementation of the <code>Registry</code>. This is a
- * <code>Map</code> based in-memory implementation.
+ * Generic decoder abstraction to decode any object.
+ * <p/>
+ * If the decoder is unable to decode the object it throws a
+ * <code>DecoderException</code>.
  * 
  * @author ennovatenow
  * 
+ * @param <D>
+ *            Type of the decoded object.
+ * @param <T>
+ *            Type of the source object to be decoded.
  */
-public class DefaultRegistry extends HashMap<String, Object> implements
-        Registry {
-
-    private static final long serialVersionUID = -2210627069553146424L;
-
-    @Override
-    public Object lookup(final String name) {
-        return get(name);
-    }
-
-    @Override
-    public <T> T lookup(final String name, final Class<T> type) {
-        final Object object = lookup(name);
-        return type.cast(object);
-    }
-
+public interface Decoder<T, S> {
+    /**
+     * Decodes an encoded object.
+     * 
+     * @param source
+     *            The object to be decoded.
+     * @return The decoded object.
+     */
+    T decode(S source);
 }
