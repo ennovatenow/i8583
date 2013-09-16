@@ -34,12 +34,13 @@ public class DefaultMessageBuilder implements Builder<Message> {
     private final String mti;
     private final Map<Integer, String> elements;
 
-    public DefaultMessageBuilder(String mti) {
+    public DefaultMessageBuilder(final String mti) {
         this.mti = mti;
         elements = new HashMap<Integer, String>();
     }
 
-    public DefaultMessageBuilder addElement(int position, String value) {
+    public DefaultMessageBuilder addElement(final int position,
+            final String value) {
         elements.put(position, value);
         return this;
     }
@@ -48,13 +49,13 @@ public class DefaultMessageBuilder implements Builder<Message> {
     public Message build() {
         final int maxElements = 128;
 
-        StringBuilder bitmap = new StringBuilder(maxElements);
+        final StringBuilder bitmap = new StringBuilder(maxElements);
 
         for (int index = 0; index < maxElements; index++) {
             bitmap.append('0');
         }
 
-        for (Integer key : elements.keySet()) {
+        for (final Integer key : elements.keySet()) {
             bitmap.setCharAt(key - 1, '1');
         }
 
@@ -63,21 +64,24 @@ public class DefaultMessageBuilder implements Builder<Message> {
 
         return new Message() {
 
-            public Object getMti() {
-                return mti;
-            }
-
-            public Object getElement(String index) {
+            @Override
+            public Object getElement(final String index) {
                 return elements.get(Integer.parseInt(index));
             }
 
             @Override
+            public Object getMti() {
+                return mti;
+            }
+
+            @Override
             public String toString() {
-                StringBuilder sb = new StringBuilder();
+                final StringBuilder sb = new StringBuilder();
                 sb.append(String.format("mti: %s%n", getMti()));
                 sb.append('\n');
                 for (int i = 1; i <= 128; i++) {
-                    sb.append(String.format("element(%d): %s%n ", i, elements.get(i)));
+                    sb.append(String.format("element(%d): %s%n ", i,
+                            elements.get(i)));
                 }
                 return sb.toString();
             }

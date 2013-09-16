@@ -28,7 +28,7 @@ package org.i8583;
  */
 public class BuilderException extends RuntimeException {
 
-   private static final long serialVersionUID = 6806634881819310662L;
+    private static final long serialVersionUID = 6806634881819310662L;
 
     /**
      * Constructs a new exception with the specified detail message. The cause
