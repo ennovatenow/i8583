@@ -16,8 +16,8 @@
 
 	<name>i8583</name>
 	<description>An ISO 8583 parser with a focus on integrations</description>
-	<url>http://ennovatenow.github.io/i8583/</url>
-	
+	<url>http://www.i8583.org</url>
+
 	<mailingLists>
 		<mailingList>
 			<name>i8583-dev</name>
@@ -33,11 +33,11 @@
 		</mailingList>
 	</mailingLists>
 
-    <inceptionYear>2013</inceptionYear>
-    
+	<inceptionYear>2013</inceptionYear>
+
 	<organization>
 		<name>Evolvus Solutions Pvt. Ltd</name>
-		<url>http://www.evolvussolutions.com</url>		
+		<url>http://www.evolvussolutions.com</url>
 	</organization>
 
 	<licenses>
@@ -57,7 +57,7 @@
 		<developer>
 			<id>ennovatenow</id>
 			<name>Ennovate Now</name>
-			<email>anish.thomas@evolvussolutions.com</email>
+			<email>i8583-admin@evolvussolutions.com</email>
 		</developer>
 	</developers>
 
@@ -77,26 +77,6 @@
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.9.1</version>
-				<configuration>
-					<outputDirectory>${project.build.directory}</outputDirectory>
-					<reportOuputDirectory>${project.reporting.outputDirectory}/${project.version}</reportOuputDirectory>
-					<destDir>${project.version}</destDir>
-				</configuration>
-				<executions>
-					<execution>
-						<id>aggregate</id>
-						<inherited>false</inherited>
-						<goals>
-							<goal>aggregate</goal>
-						</goals>
-						<phase>site</phase>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

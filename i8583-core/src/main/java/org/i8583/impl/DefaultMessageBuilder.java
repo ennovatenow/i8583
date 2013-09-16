@@ -25,23 +25,18 @@ import org.i8583.Message;
 import org.i8583.spi.Builder;
 
 /**
+ * 
  * @author ennovatenow
  * 
  */
 public class DefaultMessageBuilder implements Builder<Message> {
 
     private final String mti;
-    private int maxElements;
     private final Map<Integer, String> elements;
 
     public DefaultMessageBuilder(String mti) {
         this.mti = mti;
         elements = new HashMap<Integer, String>();
-    }
-
-    public DefaultMessageBuilder setMaxElements(final int maxElements) {
-        this.maxElements = maxElements;
-        return this;
     }
 
     public DefaultMessageBuilder addElement(int position, String value) {
@@ -51,28 +46,19 @@ public class DefaultMessageBuilder implements Builder<Message> {
 
     @Override
     public Message build() {
+        final int maxElements = 128;
+
         StringBuilder bitmap = new StringBuilder(maxElements);
-        
+
         for (int index = 0; index < maxElements; index++) {
-            bitmap.setCharAt(index, '0');
+            bitmap.append('0');
         }
-        
+
         for (Integer key : elements.keySet()) {
-            bitmap.setCharAt(key, '1');
+            bitmap.setCharAt(key - 1, '1');
         }
-        
-        if(maxElements == 64) {
-            bitmap.setCharAt(0, '0');
-        }
-        
-        if(maxElements == 128) {
-            bitmap.setCharAt(0, '1');
-        }
-        
-        if(maxElements == 192) {
-            bitmap.setCharAt(64, '1');
-        }
-                
+
+        bitmap.setCharAt(0, '1');
         elements.put(1, bitmap.toString());
 
         return new Message() {
@@ -81,8 +67,19 @@ public class DefaultMessageBuilder implements Builder<Message> {
                 return mti;
             }
 
-            public Object getElement(String position) {
-                return elements.get(Integer.parseInt(position));
+            public Object getElement(String index) {
+                return elements.get(Integer.parseInt(index));
+            }
+
+            @Override
+            public String toString() {
+                StringBuilder sb = new StringBuilder();
+                sb.append(String.format("mti: %s%n", getMti()));
+                sb.append('\n');
+                for (int i = 1; i <= 128; i++) {
+                    sb.append(String.format("element(%d): %s%n ", i, elements.get(i)));
+                }
+                return sb.toString();
             }
 
         };
