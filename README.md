@@ -1,4 +1,4 @@
 i8583
 =====
 
-Repository of i8583 - An ISO 8583 parser with a focus on integrations
+i8583 is an ISO 8583 parser designed with a focus on integrations
